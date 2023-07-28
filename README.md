@@ -1,14 +1,5 @@
 # PetFamily Project for cmpt470
 
-
-Members  (Group 21):
-
-Shan Qing, sqing
-
-Yanze Zheng, yanzez
-
-Lei Du, duleid
-
 # master branch
 # RUN (docker):
 
