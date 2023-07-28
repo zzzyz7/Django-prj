@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<link href="{% static 'contact.css' %}" rel="stylesheet"/>
+
+{% block content %}
+<style>
+.highlighted-block
+{
+  padding:20px;
+  background-color:#fafafa;
+}
+dl
+{
+  margin-bottom:0;
+  font-size:14px
+}
+dl:after{
+  content:'';
+  display:table;
+  clear:both
+}
+dl dd,dl dt{
+  float:left;
+  display:inline-block;
+  padding:12px 0;
+  color:#818a91
+}
+dl dt{
+  width:50%;
+  font-weight:600;
+  text-align:right;
+  padding-right:16px
+}
+dl dd
+{
+  width:50%;
+  padding-left:16px;
+}
+dl.icon-holder dt
+{
+  width:9%;
+  text-align:left;
+  padding:4px 0;
+  font-size:16px;
+  line-height:25px
+}
+dl.icon-holder dd
+{
+  width:91%;
+  line-height:25px;
+  padding:4px 10px
+}
+{% comment %}
+.form-group{
+  margin-top:5%;
+}
+
+.btn
+{% endcomment %}
+
+.btx
+{
+  margin:30px 0px;
+  padding:15px;
+  background:#29aafe;
+  border-color:#29aafe;
+  width:150px;
+} 
+.form-group{
+  margin-top: 2%;
+}
+</style>
+<section>
+    <br><div class="container">
+          <div class="row">
+          <div class="col-sm-12 col-md-8">
+           <h4>Contact form</h4>
+            <form method="post">
+              
+              {% csrf_token %}
+              
+
+               <div class="form-group">
+                 <label>Name:</label>
+                 <input type="text" class="form-control input-lg" name="name" placeholder="Enter your name here...">
+              </div>
+              <div class="form-group">
+                  <label>Email:</label>
+                  <input type="email" class="form-control input-lg" name="from_email" placeholder="Enter your email here...">
+              </div>
+              <div class="form-group">
+                <label>Message:</label>
+                <textarea class="form-control" rows="5" name="message" placeholder="Enter your message here..."></textarea>
+              </div>
+
+
+              <button type="submit" class="btx btx-primary bg-success">Send</button>
+            </form>
+          </div>
+       <div class="col-sm-12 col-md-4">
+          <h4>Information</h4>
+       <div class="highlighted-block">
+         <dl class="icon-holder">
+          <dt><i class="fa fa-map-marker"></i></dt>
+       <dd>8888 University Dr, Burnaby, BC V5A 1S6</dd>
+       <dt><i class="fa fa-phone"></i></dt>
+       <dd>(+1) 778 123 4567</dd>
+       <dt><i class="fa fa-fax"></i></dt>
+        <dd>(+1) 778 123 4567 </dd>
+        <dt><i class="fa fa-envelope"></i></dt>                
+        <dd>hi@sfu.ca</dd></dl>
+        </div>
+        <br>
+        </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

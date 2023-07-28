@@ -1,0 +1,110 @@
+<!-- this is the upload page -->
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Upload Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+.form-group{
+    margin-top: 3%;
+}
+.btn{
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+.box{
+    background-color: burlywood;
+}
+</style>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <p class="text-center fs-2">
+                Upload Your Pet
+            </p>
+        </div>
+        <form method="POST" class="box row">
+            {% csrf_token %}
+            {% comment %} {{ form.errors }} {% endcomment %}
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" class="form-control input-lg" name="name" placeholder="Enter the name of your pet here...">
+             </div>
+             <p></p>
+             <div class="form-group">
+                <label>Bread:</label>
+                <input type="text" class="form-control input-lg" name="breed" placeholder="Enter the bread of your pet here...">
+             </div>
+             <p></p>
+             <div class="form-group">
+                <label>Age:</label>
+                <input type="integer" class="form-control input-lg" name="age" placeholder="Enter the age of your pet here...">
+            </div>
+            <div class="form-group">
+                <label>Friendly:</label>
+                <input type="intger" class="form-control input-lg" name="friendly" placeholder="Enter the friendly level of your pet here...">
+            </div>
+            <p></p>
+             <div class="form-group">
+                <label>Image:</label>
+                <input type="text" class="form-control input-lg" name="image" placeholder="Enter image link of your pet here...">
+             </div>
+             <p></p>
+             <div class="form-group">
+                <label>Description:</label>
+                <textarea type="text" class="form-control input-lg" rows="5" name="description" placeholder="Enter your description about your pet here..."></textarea>
+             </div>
+             
+            {% comment %} <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="PetName" class="form-label">Pet Name</label>
+                        <input type="text" name="PetName"class="form-control" id="PetName" required>
+                    </div>
+                </div>
+                {% comment %} <div class="col">
+                    <div class="mb-3">
+                        <label for="YourName" class="form-label">Your Name</label>
+                        <input type="text" name="YourName" class="form-control" id="YourName" required>
+                    </div>
+                </div> {% endcomment %}
+            {% comment %} </div> {% endcomment %}
+            {% comment %} <div class="mb-3">
+                <label for="ShortDescription" class="form-label">Short Description</label>
+                <textarea class="form-control" name="ShortDescription" id="ShortDescription" rows="3" placeholder="Limit 200 characters"
+                    maxlength="200"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="Instructions" class="form-label">Instructions</label>
+                <textarea class="form-control" name="Instructions" id="Instructions" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="Photo" class="form-label">Image</label>
+                <input class="form-control" name="Photo" type="file" id="Photo">
+            </div> {% endcomment %}
+
+            {% comment %} <div class="mb-3">
+                <label for="Video" class="form-label">Video</label>
+                <input class="form-control" name="Video" type="file" id="Video">
+            </div> {% endcomment %}
+
+            <!-- <div class="mb-3">
+                <label for="Video" class="form-label">Video</label>
+                <input class="form-control" name="Video" type="file" id="Video">
+            </div> -->
+
+            <button type="submit" class="d-grid btn btn-outline-success col-2 mx-auto">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2>Favourites</h2>
+	<div class="pets">
+		{% for pet in favourite_pets %}
+        <a href="pet/{{pet.id}}" style="text-decoration: none">
+            <div class="card bg-success" style="width: 21rem;">
+                <img src="{{ pet.image }}" class="card-img-top" alt="pets" style="height: 20rem; width:20rem;">
+                <div class="card-body">
+                    <h5 class="card-title text-light text-center">{{ pet.name }}</h5>
+                    <p class="card-text text-light text-center">Arrive on: {{ pet.sheltered_time }}</p>
+                    <form action = "{% url 'remove_favourite' pet.id %}" method="POST">
+                        {% csrf_token %}		
+                        <button type="submit", name="unfavouriteBtn">Unfavourite</button>
+                    </form>	
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+

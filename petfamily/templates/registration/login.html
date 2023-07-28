@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
+{% block content %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet"/>
+    <title>Log In</title>
+  </head>
+  <style>
+    .forgot-password{
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="container">
+        <div class="login-box">
+            {% comment %} <form method="post">
+              {{ form.non_field_errors }}
+              <div class="form-group">
+                  <label for="{{ form.username.id_for_label }}">Username:</label>
+                  {{ form.username }}
+                  {{ form.username.errors }}
+              </div>
+              <div class="form-group">
+                  <label for="{{ form.password.id_for_label }}">Password:</label>
+                  {{ form.password }}
+                  {{ form.password.errors }}
+              </div>
+              <button type="submit">Login</button>
+            </form> {% endcomment %}
+             <form class="form-login" action="/login/" method="post">
+                {% if message %}
+                <div class="alert alert-warning">{{ message }}</div>
+                {% endif %}
+                {% csrf_token %}
+                  <h3 class="text-center">Welcome Log In</h3>
+
+
+                  <div class="form-group">
+                    <label for="id_username">Username:</label>
+                    <input type="text" name='username' class="form-control" id="id_username" placeholder="Enter your username here" autofocus required>
+                  </div>
+                  <div class="form-group" id="password-box">
+                    <label for="id_password">Password:</label>
+                    <input type="password" name='password' class="form-control" id="id_password" placeholder="Enter your password here" required>
+                  </div>
+                  {% comment %} <div class="form-group">
+                    {{ login_form.captcha.label_tag }}
+                    {{ login_form.captcha }}
+                  </div> {% endcomment %}
+                  <div class="forgot-password">
+                    <a href="/password_reset" rel="external nofollow" >Forgot Password</a>
+                  </div>
+
+                  <div class="submit-button">
+                    <button type="submit" class="btn btn-primary ">Login</button>
+                  </div>
+              </form>
+        </div>
+    </div> 
+
+  </body>
+</html>
+{% endblock %}

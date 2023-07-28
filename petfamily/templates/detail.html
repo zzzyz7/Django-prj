@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block content %} 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <img src="{{ pet.image }}" class="mx-auto d-block" style="height: 40rem; width: 35rem;" alt="pet image">
+        </div>
+        
+        <div class="col-md-5 mt-5 ml-2">
+            <h5 class="mt-5 display-4 text-success">
+                {{ pet.name }} {% if pet.sex == 'Male' %}
+                <i class='fas fa-mars' style='color: blue;'></i>
+                {% elif pet.sex == 'Female' %}
+                <i class='fas fa-venus' style='color: pink;'></i>
+                {% endif %}
+            </h5>
+            <p>{{ pet.description }}</p>
+            <p>
+                <span class="text-success">Friendly</span>
+                {% if pet.friendly >= 1 %}
+                <i class="fas fa-heart" style='color: red;'></i>
+                {% else %}
+                <i class="fas fa-heart"></i>
+                {% endif %} 
+                
+                {% if pet.friendly >= 2 %}
+                <i class="fas fa-heart" style='color: red;'></i>
+                {% else %}
+                <i class="fas fa-heart"></i>
+                {% endif %} 
+                
+                {% if pet.friendly >= 3 %}
+                <i class="fas fa-heart" style='color: red;'></i>
+                {% else %}
+                <i class="fas fa-heart"></i>
+                {% endif %} 
+                
+                {% if pet.friendly >= 4 %}
+                <i class="fas fa-heart" style='color: red;'></i>
+                {% else %}
+                <i class="fas fa-heart"></i>
+                {% endif %}
+                
+                {% if pet.friendly >= 4 %}
+                <i class="fas fa-heart" style='color: red;'></i>
+                {% else %}
+                <i class="fas fa-heart"></i>
+                {% endif %}
+            </p>
+            
+            <p><span class="text-success">Breed:</span> {{ pet.breed }}</p>
+            <p><span class="text-success">Age:</span> {{ pet.age }}</p>
+            <p><span class="text-success">Arrive time:</span> {{ pet.sheltered_time }}</p>
+           
+            <div class="card">
+                <!-- Slider main container -->
+                <div class="swiper-container">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                    {% for pet in pets %}
+        
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                      <a href="../{{pet.id}}">
+                        <div class="card">
+                          <img src="{{ pet.image }}" class="card-img-top" alt="{{ pet.image }}" style="height: 10rem;"/>
+                        </div>
+                      </a>
+                    </div>
+        
+                    {% endfor %}
+                  </div>
+        
+                  <!-- If we need navigation buttons -->
+                  <div class="swiper-button-prev text-success"></div>
+                  <div class="swiper-button-next text-success"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+{% endblock content %}
